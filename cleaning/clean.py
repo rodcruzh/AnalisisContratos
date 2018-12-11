@@ -26,7 +26,7 @@ class FieldSelector:
 	def fieldSelector(jsonObject, condition):
 		return filter( condition, jsonObject.keys())
 
-	
+
 	"""
 	retorna las llaves dentro de jsonObject que contienen la palabra word
 	"""
@@ -44,11 +44,17 @@ class Cleaner:
 		self.json_object = json_object
 
 		self.lista_de_fechas = [
+			"Adición al contrato",
+			"Adjudicación",
+			"Celebración de Contrato",
+			"Convocatoria",
 			"Creación de Proceso",
 			"Fecha de Inicio de Ejecución del Contrato",
-			"Celebración de Contrato",
 			"Fecha de Firma del Contrato",
-			"Liquidación de Contrato"
+			"Fecha de Terminación del Contrato",
+			"Fecha Terminación Anormal Después de Convocado",
+			"Liquidación de Contrato",
+			"Fecha de Liquidación del Contrato"
 		]
 
 		self.lista_de_identificaciones = [
@@ -97,10 +103,10 @@ def main():
 	args = parser.parse_args()
 
 	input_arg = args.input
-	output_arg = args.output 
+	output_arg = args.output
 
 	out = codecs.open(output_arg, 'w', 'utf-8')
-	counter = 0 
+	counter = 0
 	for j in Parser(input_arg).getLines():
 		counter = counter + 1
 		print(str(counter)+"\r")
@@ -110,4 +116,3 @@ def main():
 
 if __name__ == "__main__":
 	main()
-

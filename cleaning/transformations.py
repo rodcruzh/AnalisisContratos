@@ -87,15 +87,16 @@ def cleanIdentificacion(identificacion):
     identificacion = identificacion.strip().lower()
     re_cc_and_id = r'\s*([a-z]+)\s*(\d+)\s*'
 
-    match = re.search(re_cc_and_id, re.sub(r'\.|\,', '', identificacion ))
-    tipo   = match.group(1)
-    numero = int(match.group(2))
-    return {"numero": numero, "tipo": tipo}
+    match = re.search(re_cc_and_id, re.sub(r'\.|\,|\-', '', identificacion ))
+
+    if match is not None:
+        tipo   = match.group(1)
+        numero = int(match.group(2))
+        return {"numero": numero, "tipo": tipo}
+    else:
+        return identificacion        
   except Exception:
     return {"numero": int(identificacion), "tipo": ""}
 
 def cleanProponentes(proponentes):
   return proponentes.split("\r\n")
-
-
-
