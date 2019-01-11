@@ -16,6 +16,7 @@ Analizando + Limpiando datos de contratacion publica.
 	- Formatear locaciones .i.e: `Departamento Y Municipio de Ejecucion: "Huila : La Plata"` => `departamento:"huila", "municipio":"la plata" `
 	- Formatear montos. i.e: `$12,000,000     Peso Colombiano`  => `12000000`
 	- Formatear el campo `Calificación definitiva de los proponentes - Orden de elegibilidad` para extraer los proponentes, y el puntaje.
+	- Transforma campo `Plazo de Ejecución del Contrato` a dias en numero entero
 
 	### Script de limpieza
 

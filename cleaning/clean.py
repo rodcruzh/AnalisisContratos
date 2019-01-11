@@ -3,7 +3,7 @@ import codecs
 import json
 import argparse
 
-from transformations import cleanIdentificacion, cleanProponentes, cleanFecha, cleanPrecio, cleanProponentes, cleanLugar
+from transformations import cleanIdentificacion, cleanProponentes, cleanFecha, cleanPrecio, cleanProponentes, cleanLugar, cleanPlazo
 
 class Parser:
 
@@ -79,6 +79,10 @@ class Cleaner:
 			"Calificación definitiva de los proponentes - Orden de elegibilidad"
 		]
 
+		self.lista_de_plazos = [
+			"Plazo de Ejecución del Contrato"
+		]
+
 	def cleanList(self, list_of_keys, cleaning_function):
 		for i in list_of_keys:
 			keys = FieldSelector.fieldContains(self.json_object, i)
@@ -91,6 +95,7 @@ class Cleaner:
 		self.cleanList(self.lista_de_precios, cleanPrecio)
 		self.cleanList(self.lista_de_ubicaciones, cleanLugar)
 		self.cleanList(self.lista_de_aplicantes, cleanProponentes)
+		self.cleanList(self.lista_de_plazos, cleanPlazo)
 
 		return self.json_object
 
